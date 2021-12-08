@@ -15,7 +15,10 @@ class Home extends Component {
           <div className='side-bar'>
             <div className='sidebar-top'>
               <div className='profile-pic'></div>
-              <div className='option-btns'></div>
+              <div className='options-btn'>
+                <div className='btn Unanswered'>Unanswered</div>
+                <div className='btn answered'>Answered</div>
+              </div>
             </div>
             <div className='sidebar-bottom'><AiOutlineLogout title='Logout' className='logout-icon'/> </div>
           </div>
