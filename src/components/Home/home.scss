@@ -67,7 +67,7 @@
       }
 
       .sidebar-top {
-        width: 69%;
+        width: 70%;
 
         display: flex;
         justify-content: space-evenly;
@@ -85,12 +85,25 @@
           width: 100%;
           background: url("../../assets/images/male_profile_pic.png") no-repeat;
           background-position: center;
-          background-size: contain;
+          background-size: cover;
           background-clip: padding-box;
+          // border: 1px solid chartreuse;
+          
+          @include responsive(tab) {
+            background-size: contain;
+          }
+          @include responsive(desktop) {
+            background-size: contain;
+          }
         }
         .options-btn {
-          font-size: 2rem;
+          // border: 1px solid chartreuse;
+          font-size: 1.5rem;
           width: 100%;
+          
+          @include responsive(tab) {
+            font-size: 2rem;
+          }
           .btn {
             background: $white;
             // box-shadow: $shadow;
@@ -108,6 +121,7 @@
       }
       .sidebar-bottom {
         width: 29%;
+        // border: 1px solid chartreuse;
 
         display: flex;
         justify-content: center;
