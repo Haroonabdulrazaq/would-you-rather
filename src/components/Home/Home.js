@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 // import {_getQuestions} from '../../_DATA';
 import {AiOutlineMenu} from 'react-icons/ai';
 import {AiOutlineLogout} from 'react-icons/ai';
+import {connect} from 'react-redux';
+import { getAllQuestions } from '../../actions/questions';
 import './home.scss';
 
 class Home extends Component {
   render() {
+    const {dispatch, questions} = this.props;
+    console.log('Questions in Home', questions);
+    dispatch(getAllQuestions(questions))
     return (
       <main className='main-wrapper'>
         <div className='nav'>
@@ -32,4 +37,12 @@ class Home extends Component {
   }
 }
 
-export default Home;
+function mapStateToProps({questions}){
+  console.log('Home mapStateToProps', questions);
+  return {
+    questions: questions
+  }
+}
+
+
+export default connect(mapStateToProps)(Home);

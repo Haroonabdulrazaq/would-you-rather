@@ -82,7 +82,7 @@
 
         .profile-pic {
           height: 100%;
-          width: 100%;
+          width: 50%;
           background: url("../../assets/images/male_profile_pic.png") no-repeat;
           background-position: center;
           background-size: cover;
@@ -90,10 +90,11 @@
           // border: 1px solid chartreuse;
           
           @include responsive(tab) {
-            background-size: contain;
+            width: 100%;
+            background-size: cover;
           }
           @include responsive(desktop) {
-            background-size: contain;
+            background-size: cover;
           }
         }
         .options-btn {
