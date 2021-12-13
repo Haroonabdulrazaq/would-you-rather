@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Home from './components/Home/Home';
+import Home from './Home/Home';
 import './App.scss';
-import { handleInitialData } from './actions';
+import { handleInitialData } from '../actions';
 // import { getAllQuestions } from './actions/questions';
 
 
 class App extends React.Component {
   componentDidMount(){
-    // const me =handleInitialData();
-    // console.log('Me here...',me);
+    console.log('This dot props', this.props);
     this.props.dispatch(handleInitialData());
   }
   render(){
@@ -22,12 +21,13 @@ class App extends React.Component {
     );
   }
 }
-  function mapStateToProps({questions}){
-    console.log('mapStateToProps in App', questions);
-    return {
-      questions: questions
-    }
-  }
 
+function mapStateToProps({users, questions}){
+  console.log('mapStateToProps in App', users);
+  console.log('mapStateToProps in App', questions);
+  return {
+    questions
+  }
+}
 
 export default connect(mapStateToProps)(App);

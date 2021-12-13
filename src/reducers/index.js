@@ -4,8 +4,8 @@ import usersReducer from './usersReducer';
 
 
 const rootReducer = combineReducers({
-  questionsReducer,
   usersReducer,
+  questionsReducer,
 });
 
 export default rootReducer;

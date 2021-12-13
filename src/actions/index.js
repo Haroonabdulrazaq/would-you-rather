@@ -1,5 +1,6 @@
-import { getInitialData } from '../api';
+import { getInitialData } from '../utils/api';
 import { getAllQuestions } from './questions';
+import { getUsers } from './usersAction';
 
 
 export function handleInitialData(){
@@ -8,6 +9,7 @@ export function handleInitialData(){
     .then(({users, questions})=>{
       console.log('Questions in Index Actions', questions);
       dispatch(getAllQuestions(questions))
+      dispatch(getUsers(users))
     })
   }
 }
