@@ -3,30 +3,33 @@ import { connect } from 'react-redux';
 import Home from './Home/Home';
 import './App.scss';
 import { handleInitialData } from '../actions';
-// import { getAllQuestions } from './actions/questions';
 
 
 class App extends React.Component {
   componentDidMount(){
-    console.log('This dot props', this.props);
     this.props.dispatch(handleInitialData());
+    console.log('This is a props', this.props);
   }
+
   render(){
-    console.log('This is a Prop in App', this.props);
-    // dispatch(getAllQuestions(this.props))
     return (
       <div className="App">
         <Home/>
+        {this.props.questionId.map((id)=>(
+          <li key={id}>
+          {/* <Tweet id={id}/> */}
+        </li>
+        ))}
       </div>
     );
   }
 }
 
 function mapStateToProps({users, questions}){
-  console.log('mapStateToProps in App', users);
-  console.log('mapStateToProps in App', questions);
   return {
-    questions
+    users,
+    questionId: Object.keys(questions)
+    .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
   }
 }
 

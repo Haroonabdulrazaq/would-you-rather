@@ -4,13 +4,12 @@ import { getUsers } from './usersAction';
 
 
 export function handleInitialData(){
-  return (dispatch)=>{
+  return async (dispatch)=>{
     return getInitialData()
-    .then(({users, questions})=>{
-      console.log('Questions in Index Actions', questions);
-      dispatch(getAllQuestions(questions))
-      dispatch(getUsers(users))
-    })
+      .then(({users, questions})=>{
+        dispatch(getUsers(users))
+        dispatch(getAllQuestions(questions))
+      })
   }
 }
 

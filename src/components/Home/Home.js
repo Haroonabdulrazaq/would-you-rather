@@ -3,14 +3,11 @@ import React, { Component } from 'react';
 import {AiOutlineMenu} from 'react-icons/ai';
 import {AiOutlineLogout} from 'react-icons/ai';
 import {connect} from 'react-redux';
-import { getAllQuestions } from '../../actions/questions';
+// import { getAllQuestions } from '../../actions/questions';
 import './home.scss';
 
 class Home extends Component {
   render() {
-    const {dispatch, questions} = this.props;
-    console.log('Questions in Home', questions);
-    dispatch(getAllQuestions(questions))
     return (
       <main className='main-wrapper'>
         <div className='nav'>
@@ -29,7 +26,11 @@ class Home extends Component {
             <div className='sidebar-bottom'><AiOutlineLogout title='Logout' className='logout-icon'/> </div>
           </div>
           <div className='content'>
-            
+            {/* {this.props.questions.map((question)=>(
+              <div key={question.id}>
+                console.log(question);
+              </div>
+            ))} */}
           </div>
         </div>
       </main>
@@ -38,9 +39,9 @@ class Home extends Component {
 }
 
 function mapStateToProps({questions}){
-  console.log('Home mapStateToProps', questions);
+  // console.log('Home mapStateToProps', questions);
   return {
-    questions: questions
+    questions
   }
 }
 
