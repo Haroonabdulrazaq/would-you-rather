@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import {_getQuestions} from '../../_DATA';
 import {AiOutlineMenu} from 'react-icons/ai';
 import {AiOutlineLogout} from 'react-icons/ai';
 import {connect} from 'react-redux';
@@ -41,12 +40,4 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps({questions}){
-  // console.log('Home mapStateToProps', questions);
-  return {
-    questions
-  }
-}
-
-
-export default connect(mapStateToProps)(Home);
+export default connect()(Home);
