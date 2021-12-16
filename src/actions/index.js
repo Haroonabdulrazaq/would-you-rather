@@ -7,6 +7,7 @@ export function handleInitialData(){
   return async (dispatch)=>{
     return getInitialData()
       .then(({users, questions})=>{
+        
         dispatch(getUsers(users))
         dispatch(getAllQuestions(questions))
       })

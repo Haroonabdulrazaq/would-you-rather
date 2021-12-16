@@ -6,7 +6,7 @@ const usersReducer=(state={}, action)=> {
       // console.log('I am the user Action in userReducer', action.users);
       return {...state, ...action.users};
     default:
-      return state
+      return state;
   }
 } 
 

@@ -143,12 +143,32 @@
       }
     }
     .content {
-      // border: 1px solid red;
+      border: 1px solid red;
       width: 100%;
       min-height: 70vh;
+      padding: 2rem;
       @include responsive(tab) {
         width: 68%;
         min-height: inherit;
+      }
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      ul > li {
+        margin: 1rem;
+      }
+
+      li {
+        width: 100%;
+        list-style-type: none;
+        // height: 5vh;
+        @include responsive(tab) {
+          width: 45%;
+        }
       }
     }
   }
