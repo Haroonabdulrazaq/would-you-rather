@@ -26,4 +26,12 @@ class Login extends Component {
   }
 }
 
-export default connect()(Login);
+function mapStateToProps(state){
+  const {users} = state;
+  return {
+    userId: Object.keys(users)
+    .sort((a,b) => users[b].timestamp - users[a].timestamp),
+  }
+}
+
+export default connect(mapStateToProps)(Login);

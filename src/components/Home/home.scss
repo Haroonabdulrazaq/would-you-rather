@@ -20,12 +20,31 @@
     align-items: center;
 
     .navbar-brand {
-      font-family: 'Corinthia', cursive;
+      font-family: $cursiveFont;
       font-size: 2.5rem;
     }
 
     .navbar-brand:hover {
       cursor: pointer;
+    }
+    .navbar-menu {
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include responsive(tab) {
+        width: 20%;
+      }
+
+      p{
+        
+        font-size: 1rem;
+        cursor: pointer;
+        @include responsive(tab) {
+          font-size: 2rem;
+        }
+      }
     }
 
     .menu-icon {
