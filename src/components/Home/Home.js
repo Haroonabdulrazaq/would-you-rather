@@ -6,16 +6,41 @@ import Question from './Question';
 import './home.scss';
 
 class Home extends Component {
+
+    state ={
+      tab: true,
+      currentTab: 'UnAnswered Questions'
+    }
+    handleUnAnswered=()=>{
+      this.setState(()=>({ 
+        tab: true,
+        currentTab: 'Un Answered Questions'
+      }))
+    }
+    handleAnswered=()=>{
+      this.setState(()=>({ 
+        tab: false,
+        currentTab: 'Answered Questions'
+      }))
+    }
   render() {
     // const {authedUser}  =this.props
     if(this.props.users ===null ) {
       return <p>Loading...</p>
     }
-    if(this.props.user) {
-      console.log('Question', this.props.questions);
-      console.log('I am currently loggedIn', this.props.answeredQuestions);
+    if(this.props.users) {
+      console.log('QuestionId', this.props.questionId);
+      console.log('AnsweredId', this.props.answersId);
+      console.log('UnAnsweredId', this.props.unAnsweredId);
     }
-    // console.log('I am an Answered Question', this.props.answeredQuestions);
+    const {tab, currentTab} = this.state
+    let myTab = [];
+    if(tab) {
+      myTab = this.props.unAnsweredId
+    }else {
+      myTab = this.props.answersId
+    }
+    
     return (
       <main className='main-wrapper'>
         <div className='nav'>
@@ -30,16 +55,16 @@ class Home extends Component {
             <div className='sidebar-top'>
               <div className='profile-pic'></div>
               <div className='options-btn'>
-                <div className='btn Unanswered'>Unanswered</div>
-                <div className='btn answered'>Answered</div>
+                <div className='btn Unanswered' onClick={this.handleUnAnswered}>Unanswered</div>
+                <div className='btn answered' onClick={this.handleAnswered}>Answered</div>
               </div>
             </div>
             <div className='sidebar-bottom'><AiOutlineLogout title='Logout' className='logout-icon'/> </div>
           </div>
           <div className='content'>
-            <h2>Tab Answered or Unanswered</h2>
+            <h2>{currentTab}</h2>
             <ul>
-              {this.props.questionId.map((id)=>(
+              {myTab.map((id)=>(
                 <li key={id}>
                   <Question id={id}/>
                 </li>
@@ -54,16 +79,16 @@ class Home extends Component {
 function mapStateToProps({authedUser, users, questions}){
   const currentUser = users[authedUser]
   const answersId= Object.keys(users[authedUser]['answers'])
-  const answeredQuestions = questions[answersId]
+  const questionId= Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+  const unAnsweredId = questionId.filter(x => !answersId.includes(x));
   return {
     authedUser,
-    questions,
     users,
-    questionId: Object.keys(questions)
-      .sort((a,b) => questions[b].timestamp - questions[a].timestamp),
     currentUser, 
-    answeredQuestions,
+    questions,
+    questionId,
     answersId,
+    unAnsweredId,
   }
 }
 // authedUser: Is the id of the logged In user
