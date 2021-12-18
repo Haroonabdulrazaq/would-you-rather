@@ -55,8 +55,8 @@ class Home extends Component {
             <div className='sidebar-top'>
               <div className='profile-pic'></div>
               <div className='options-btn'>
-                <div className='btn Unanswered' onClick={this.handleUnAnswered}>Unanswered</div>
-                <div className='btn answered' onClick={this.handleAnswered}>Answered</div>
+                <div className='btn Unanswered' style={{borderBottom: tab? '3px solid #800080': null}}  onClick={this.handleUnAnswered}>Unanswered</div>
+                <div className='btn answered' style={{borderBottom: tab? null:  '3px solid #800080'}} onClick={this.handleAnswered}>Answered</div>
               </div>
             </div>
             <div className='sidebar-bottom'><AiOutlineLogout title='Logout' className='logout-icon'/> </div>
