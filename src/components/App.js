@@ -1,6 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Home from './Home/Home';
+import Question from './Home/Question';
 import Login from './Login/Login';
 import './App.scss';
 import { handleInitialData } from '../actions';
@@ -11,9 +13,16 @@ class App extends React.Component {
   }
   render(){
     return (
-      <div className="App"> 
-       {this.props.authedUser? <Home />:<Login />}
-      </div>
+      <Router className="App"> 
+       {!this.props.authedUser? <Login />
+       : 
+       <Routes>
+        <Route path='/' exact={true} element={<Home/>}/>
+        <Route path='/question/:id' exact={true} element={<Question/>}/>
+       </Routes>
+       
+       }
+      </Router>
     );
   }
 }
