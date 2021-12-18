@@ -1,0 +1,18 @@
+@import "../../assets/stylesheets/mediaQuery.scss";
+@import "../../assets/stylesheets/utils.scss";
+
+.detail-wrapper {
+  border: 1px solid chartreuse;
+  min-height: 100vh;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.you-invert {
+  color: $purple;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 50%;
+}

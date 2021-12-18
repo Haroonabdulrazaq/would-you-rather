@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
 import {AiOutlineLogout} from 'react-icons/ai';
 import {connect} from 'react-redux';
 import Question from './Question';
@@ -41,7 +40,6 @@ class Home extends Component {
     
     return (
       <main className='main-wrapper'>
-        <Nav authedUser={this.props.authedUser}/>
         <div className='wrapper'>
           <div className='side-bar'>
             <div className='sidebar-top'>

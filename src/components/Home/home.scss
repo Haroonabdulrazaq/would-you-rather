@@ -6,54 +6,6 @@
   // border: 1px solid chartreuse;
   min-height: 100vh;
   color: $black;
-  
-  .nav {
-    color: $white;
-    width: 100%;
-    min-height: 10vh;
-    background: linear-gradient(to bottom right, $amaranth, $purple 0%, $dark-purple 80%);
-    padding: 0 2rem;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    .navbar-brand {
-      font-family: $cursiveFont;
-      font-size: 2.5rem;
-    }
-
-    .navbar-brand:hover {
-      cursor: pointer;
-    }
-    .navbar-menu {
-      width: 30%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      @include responsive(tab) {
-        width: 20%;
-      }
-
-      p{
-        
-        font-size: 1rem;
-        cursor: pointer;
-        @include responsive(tab) {
-          font-size: 2rem;
-        }
-      }
-    }
-
-    .menu-icon {
-      font-size: 3rem;
-    }
-    .menu-icon:hover {
-      cursor: pointer;
-    }
-  }
   .wrapper {
     // border: 1px solid blue;
     min-height: 90vh;
@@ -194,4 +146,11 @@
       }
     }
   }
+}
+
+.you {
+  color: $purple;
+  background: white;
+  padding: 1rem;
+  border-radius: 50%;
 }
