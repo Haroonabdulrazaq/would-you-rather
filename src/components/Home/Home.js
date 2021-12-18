@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import {AiOutlineMenu} from 'react-icons/ai';
+import Nav from './Nav';
 import {AiOutlineLogout} from 'react-icons/ai';
 import {connect} from 'react-redux';
 import Question from './Question';
 import './home.scss';
 
 class Home extends Component {
-
     state ={
       tab: true,
-      currentTab: 'UnAnswered Questions'
+      currentTab: 'Un Answered Questions'
     }
     handleUnAnswered=()=>{
       this.setState(()=>({ 
@@ -43,20 +42,20 @@ class Home extends Component {
     
     return (
       <main className='main-wrapper'>
-        <div className='nav'>
-          <h3 className="navbar-brand">Would you Rather?</h3>
-          <div className="navbar-menu">
-            <p className="authed-user">{this.props.authedUser? this.props.users[this.props.authedUser]['name'] : 'Welcome' }</p>
-            <AiOutlineMenu className='menu-icon'/>
-          </div>
-        </div>
+        <Nav authedUser={this.props.authedUser}/>
         <div className='wrapper'>
           <div className='side-bar'>
             <div className='sidebar-top'>
               <div className='profile-pic'></div>
               <div className='options-btn'>
-                <div className='btn Unanswered' style={{borderBottom: tab? '3px solid #800080': null}}  onClick={this.handleUnAnswered}>Unanswered</div>
-                <div className='btn answered' style={{borderBottom: tab? null:  '3px solid #800080'}} onClick={this.handleAnswered}>Answered</div>
+                <div className='btn Unanswered'
+                  style={{borderBottom: tab? '3px solid #800080': null}} 
+                  onClick={this.handleUnAnswered}>Unanswered
+                </div>
+                <div className='btn answered'
+                  style={{borderBottom: tab? null:  '3px solid #800080'}}
+                  onClick={this.handleAnswered}>Answered
+                </div>
               </div>
             </div>
             <div className='sidebar-bottom'><AiOutlineLogout title='Logout' className='logout-icon'/> </div>
@@ -76,7 +75,7 @@ class Home extends Component {
     )
   }
 }
-function mapStateToProps({authedUser, users, questions}){
+function mapStateToProps({authedUser, users, questions}){ 
   const currentUser = users[authedUser]
   const answersId= Object.keys(users[authedUser]['answers'])
   const questionId= Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)

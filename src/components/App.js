@@ -12,18 +12,19 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <Home />
-        <Login />
+        
+       {this.props.authedUser? <Home />:<Login />}
       </div>
     );
   }
 }
 
 function mapStateToProps(state){
-  const {users} = state;
+  const {users, authedUser} = state;
   return {
     userId: Object.keys(users)
     .sort((a,b) => users[b].timestamp - users[a].timestamp),
+    authedUser,
   }
 }
 
