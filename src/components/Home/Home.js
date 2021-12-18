@@ -23,7 +23,6 @@ class Home extends Component {
       }))
     }
   render() {
-    // const {authedUser}  =this.props
     if(this.props.users ===null ) {
       return <p>Loading...</p>
     }
