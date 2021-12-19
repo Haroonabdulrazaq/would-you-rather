@@ -1,3 +1,6 @@
+@import "../assets/stylesheets/mediaQuery.scss";
+@import "../assets/stylesheets/utils.scss";
+
 *,
 *::before,
 *::after {
@@ -25,4 +28,25 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center; 
+}
+
+.center-text {
+  text-align: center;
+}
+
+.you {
+  color: $purple;
+  font-weight: bold;
+  background: white;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.you-invert {
+  color: $purple;
+  font-weight: bold;
+  background: white;
+  border: 3px solid $purple;
+  padding: 1.5rem;
+  border-radius: 50%;
 }

@@ -54,10 +54,10 @@
         .profile-pic {
           height: 100%;
           width: 50%;
-          background: url("../../assets/images/male_profile_pic.png") no-repeat;
-          background-position: center;
-          background-size: cover;
-          background-clip: padding-box;
+          // background: url("../../assets/images/male_profile_pic.png") no-repeat;
+          // background-position: center;
+          // background-size: cover;
+          // background-clip: padding-box;
           // border: 1px solid chartreuse;
           
           @include responsive(tab) {
@@ -146,11 +146,4 @@
       }
     }
   }
-}
-
-.you {
-  color: $purple;
-  background: white;
-  padding: 1rem;
-  border-radius: 50%;
 }

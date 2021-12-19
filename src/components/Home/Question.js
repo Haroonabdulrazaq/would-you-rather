@@ -6,7 +6,7 @@ import './question.scss';
 
 class Question extends Component {
   render() {
-    console.log('I am this dot props', this.props);
+    // console.log('I am this dot props', this.props);
     const { id } = this.props;
     return (
      <Link to={`/question/${id}`} className='question-wrapper'>

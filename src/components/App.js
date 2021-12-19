@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Nav from './Home/Nav';
 import Home from './Home/Home';
@@ -18,10 +18,10 @@ class App extends React.Component {
         <Nav/>
        {!this.props.authedUser? <Login />
        : 
-       <Routes> 
-         <Route path='/' exact={true} element={<Home/>}/>
-         <Route path='/question/:id' exact={true} element={<QuestionDetail />}/>
-       </Routes>
+       <> 
+         <Route path='/' exact={true} component={Home}/>
+         <Route path='/question/:id' exact={true} component={QuestionDetail}/>
+       </>
        
        }
       </Router>

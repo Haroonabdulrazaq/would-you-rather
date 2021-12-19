@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {AiOutlineLogout} from 'react-icons/ai';
 import {connect} from 'react-redux';
 import Question from './Question';
+
 import './home.scss';
 
 class Home extends Component {
@@ -25,11 +26,12 @@ class Home extends Component {
     if(this.props.users ===null ) {
       return <p>Loading...</p>
     }
-    if(this.props.users) {
-      console.log('QuestionId', this.props.questionId);
-      console.log('AnsweredId', this.props.answersId);
-      console.log('UnAnsweredId', this.props.unAnsweredId);
-    }
+    // if(this.props.users) {
+      // console.log('QuestionId', this.props.questionId);
+      // console.log('AnsweredId', this.props.answersId);
+      // console.log('UnAnsweredId', this.props.unAnsweredId);
+    // }
+
     const {tab, currentTab} = this.state
     let myTab = [];
     if(tab) {
@@ -37,13 +39,18 @@ class Home extends Component {
     }else {
       myTab = this.props.answersId
     }
-    
+    console.log(this.props.currentUser);
     return (
       <main className='main-wrapper'>
         <div className='wrapper'>
           <div className='side-bar'>
             <div className='sidebar-top'>
-              <div className='profile-pic'></div>
+              <div className='profile-pic' style={{
+                backgroundImage: `url(${this.props.currentUser.avatarURL})`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundClip: 'padding-box',
+              }}></div>
               <div className='options-btn'>
                 <div className='btn Unanswered'
                   style={{borderBottom: tab? '3px solid #800080': null}} 
