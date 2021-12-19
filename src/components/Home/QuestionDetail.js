@@ -19,10 +19,11 @@ class QuestionDetail extends Component {
                 backgroundImage: `url(${user.avatarURL})`,
                 backgroundRepeat:'no-repeat',
                 backgroundPosition: 'center',
-                backgroundSize: 'cover',
+                backgroundSize: window.innerWidth<= 768? 'contain': 'cover',
                 backgroundClip: 'padding-box',
+                width:'100%',
               }}></div>
-              <div>
+              <div className='avatar-info'>
                 <p>{user.name}</p>
                 <p>{users[author].name} ask?</p>
               </div>

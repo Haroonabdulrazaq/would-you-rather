@@ -2,14 +2,12 @@
 @import "../../assets/stylesheets/utils.scss";
 
 .detail-wrapper {
-  // border: 1px solid chartreuse;
   min-height: 90vh;
   color: $black;
   background: $ash;
 
   display: flex;
   justify-content: center;
-  // align-items: center;
   
   .question-box {
     height: 70vh;
@@ -47,7 +45,7 @@
     }
 
     .question-content {
-      min-height: 80%;
+      min-height: 90%;
       // border: 1px solid red;
 
       display: flex;
@@ -59,28 +57,42 @@
         flex-direction: row;
       }
       .author-info {
-        border: 1px solid blue;
+        // border: 1px solid blue;
         width: 100%;
         height: 20vh;
         font-size: 1.5rem;
         color: $black;
         
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         @include responsive(tab) {
           width: 35%;
-          height: 55vh;
+          min-height: 55vh;
           flex-direction: column;
         }
         .avatar {
-          width: inherit;
-          height: inherit;
-          border: 1px solid chartreuse;
+          height: 20vh;
+          
+          @include responsive(tab) {
+            width: 100%;
+            min-height: 40vh;
+          }
+        }
+        .avatar-info {
+          width: 50%;
+          text-align: left;
+          height: 20vh;
+          
+          // border: 1px solid chartreuse;
+          @include responsive(tab) {
+            width: 100%;
+            height: auto;
+          }
         }
       }
       .option-parent{
-        border: 2px solid green;
+        // border: 2px solid green;
         width: 100%;
         height: 35vh;
         
