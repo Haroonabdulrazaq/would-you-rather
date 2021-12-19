@@ -65,7 +65,7 @@ class Home extends Component {
             <div className='sidebar-bottom'><AiOutlineLogout title='Logout' className='logout-icon'/> </div>
           </div>
           <div className='content'>
-            <h2>{currentTab}</h2>
+            <h2 className='current-tab'>{currentTab}</h2>
             <ul>
               {myTab.map((id)=>(
                 <li key={id}>

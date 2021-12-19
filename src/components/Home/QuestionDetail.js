@@ -21,11 +21,11 @@ class QuestionDetail extends Component {
                 backgroundPosition: 'center',
                 backgroundSize: window.innerWidth<= 768? 'contain': 'cover',
                 backgroundClip: 'padding-box',
-                width:'100%',
+                width: window.innerWidth<= 768? '50%': '100%',
               }}></div>
               <div className='avatar-info'>
-                <p>{user.name}</p>
                 <p>{users[author].name} ask?</p>
+                <p>{user.name}</p>
               </div>
             </div>
             <div className='option-parent'>

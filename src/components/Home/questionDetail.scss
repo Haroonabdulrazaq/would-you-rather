@@ -84,7 +84,6 @@
           text-align: left;
           height: 20vh;
           
-          // border: 1px solid chartreuse;
           @include responsive(tab) {
             width: 100%;
             height: auto;

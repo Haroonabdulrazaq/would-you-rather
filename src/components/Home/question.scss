@@ -2,5 +2,69 @@
 @import "../../assets/stylesheets/utils.scss";
 
 .question-wrapper {
-  border: 1px solid chartreuse;
+  // border: 1px solid $purple;
+  width: 100%;
+  min-height: 25vh;
+  border-radius: 0.3rem;
+  box-shadow: $shadow;
+  padding: 1rem;
+  font-size: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .question-author {
+    width: 100%;
+    // border: 1px solid chartreuse;
+    padding: 1.5rem;
+  }
+  
+  .question-info {
+    width: 100%;
+    // border: 1px solid chartreuse;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+    .no-answers {
+      display: block;
+      // border: 1px solid chartreuse;
+      width: 60%;
+      height: 15vh;
+      padding: 1rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+    
+    }
+    .question-btn {
+      // border: 1px solid red;
+      width: 40%;
+      height: 15vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      
+      .view-btn {
+        padding: 1rem;
+        border: 2px solid $purple;
+        text-decoration: none;
+      }
+      .view-btn:hover {
+        padding: 1rem;
+        // background: $purple;
+        background: linear-gradient(to bottom, $amaranth, $purple 0%, $dark-purple 80%);
+        border: none;
+        color: $white;
+        transition: all 0.8s;
+      }
+    }
+  }
+
 }

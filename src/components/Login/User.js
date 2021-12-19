@@ -13,12 +13,19 @@ class User extends Component {
     if(user === null){
       return <p>This User does not exist</p>
     }
-    const {id, name} = user;
+    const {id, name, avatarURL} = user;
     return (
       <div className='user-wrapper' onClick={()=> this.handleLogin(id)}>
-        <div className='avatar'></div>
+        <div className='avatar' style={{
+          backgroundImage: `url(${avatarURL})`,
+          backgroundRepeat:'no-repeat',
+          backgroundPosition: 'center',
+          backgroundClip: 'padding-box',
+          backgroundSize: 'cover'
+          // backgroundSize: window.innerWidth<= 768? 'contain': 'cover',
+          // width: window.innerWidth<= 768? '50%': '100%',
+        }}></div>
         <div className='user-info'>
-          <p>{id}</p>
           <p>{name}</p>
         </div>
       </div>

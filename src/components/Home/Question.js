@@ -6,17 +6,26 @@ import './question.scss';
 
 class Question extends Component {
   render() {
-    // console.log('I am this dot props', this.props);
-    const { id } = this.props;
+    const { id, users, question } = this.props;
+    const { author, timestamp } = question;
+    console.log('Get Users Obj', users);
     return (
-     <Link to={`/question/${id}`} className='question-wrapper'>
-        {id}
-        <p>kghholi</p>
-        <p>kghholi</p>
-        <p>kghholi</p>
-        <p>kghholi</p>
-        <p>kghholi</p>
-      </Link> 
+      <div to={`/question/${id}`} className='question-wrapper'>
+        <div className='question-author'>
+          Authored by: {users[author].name}
+        </div>
+        <div className='question-info'>
+          <div className='no-answers'>
+           <p>No of Answers: {question.optionOne.votes.length + question.optionTwo.votes.length}</p>
+            <p>{new Date(timestamp).toLocaleTimeString()}</p>
+          </div>
+          <div className='question-btn'>
+            <Link to={`/question/${id}`}  className='view-btn'>
+              View Detail
+            </Link>
+          </div>
+        </div>
+      </div> 
     )
   }
 }
@@ -24,9 +33,9 @@ class Question extends Component {
 function mapStateToProps({questions, users}, {id}){
   const question = questions[id]
   return {
+    id,
     users,
     questions,
-    id,
     question,
     // question: question? formatQuestion(question[optionOne.text]): null,
   }
