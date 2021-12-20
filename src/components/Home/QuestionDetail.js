@@ -15,6 +15,15 @@ class QuestionDetail extends Component {
     console.log('I have been clicked');
     console.log(authedUser, id, answer);
     this.props.dispatch(addQuestionAnswer(authedUser, answer, id, optionType))
+    if(optionType === 'optionOne') {
+      this.setState(()=>({
+        optionOneClicked: true
+      }))
+    } else {
+      this.setState(()=>({
+        optionTwoClicked: true
+      }))
+    }
   }
   render() {
     const{ optionOneClicked, optionTwoClicked } = this.state
@@ -44,15 +53,15 @@ class QuestionDetail extends Component {
               </div>
             </div>
             <div className='option-parent'>
-              <div className='option optionA' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionOne'})}>
+              <button disabled={optionTwoClicked} className='option optionA' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionOne'})}>
                 {optionOneClicked? <IoCheckmarkCircle  className='radio-button ans'/> :<GrCheckbox className='radio-button'/>}
                 {optionOne.text}
-              </div>
+              </button>
               <span className='you-invert'>OR</span>
-              <div className='option optionB' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionTwo'})}>
+              <button disabled={optionOneClicked}  className='option optionB' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionTwo'})}>
                {optionTwoClicked ? <IoCheckmarkCircle className='radio-button ans'/> : <GrCheckbox className='radio-button '/>}
                 {optionTwo.text}
-              </div>
+              </button>
             </div>
           </div>
         </section>
