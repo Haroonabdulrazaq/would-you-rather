@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import  { GrCheckbox } from 'react-icons/gr';
 import  { IoCheckmarkCircle } from 'react-icons/io5';
 import { addQuestionAnswer } from '../../actions/questions';
+import { addUserAnswer } from '../../actions/usersAction';
 import './questionDetail.scss';
 
 class QuestionDetail extends Component {
@@ -15,6 +16,7 @@ class QuestionDetail extends Component {
     console.log('I have been clicked');
     console.log(authedUser, id, answer);
     this.props.dispatch(addQuestionAnswer(authedUser, answer, id, optionType))
+    this.props.dispatch(addUserAnswer(authedUser, id, optionType))
     if(optionType === 'optionOne') {
       this.setState(()=>({
         optionOneClicked: true
@@ -28,7 +30,6 @@ class QuestionDetail extends Component {
   render() {
     const{ optionOneClicked, optionTwoClicked } = this.state
     const {question, user, users, authedUser} = this.props;
-    // console.log('Hello Question...', question);
     const { id, author, optionOne, optionTwo} = question;
 
     return (
@@ -53,12 +54,12 @@ class QuestionDetail extends Component {
               </div>
             </div>
             <div className='option-parent'>
-              <button disabled={optionTwoClicked} className='option optionA' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionOne'})}>
+              <button disabled={optionTwoClicked || optionOneClicked} className='option optionA' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionOne'})}>
                 {optionOneClicked? <IoCheckmarkCircle  className='radio-button ans'/> :<GrCheckbox className='radio-button'/>}
                 {optionOne.text}
               </button>
               <span className='you-invert'>OR</span>
-              <button disabled={optionOneClicked}  className='option optionB' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionTwo'})}>
+              <button disabled={optionTwoClicked || optionOneClicked} className='option optionB' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionTwo'})}>
                {optionTwoClicked ? <IoCheckmarkCircle className='radio-button ans'/> : <GrCheckbox className='radio-button '/>}
                 {optionTwo.text}
               </button>
