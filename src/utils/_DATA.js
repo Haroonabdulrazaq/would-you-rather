@@ -6,7 +6,7 @@ let users = {
     id: 'sarahedo',
     name: 'Sarah Edo',
     avatarURL: sarahedoPic,
-       answers: {
+    answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
       "am8ehyc8byjqgar0jgpub9": 'optionTwo',

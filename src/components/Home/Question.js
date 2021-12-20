@@ -8,7 +8,6 @@ class Question extends Component {
   render() {
     const { id, users, question } = this.props;
     const { author, timestamp } = question;
-    console.log('Get Users Obj', users);
     return (
       <div to={`/question/${id}`} className='question-wrapper'>
         <div className='question-author'>
@@ -17,7 +16,7 @@ class Question extends Component {
         <div className='question-info'>
           <div className='no-answers'>
            <p>No of Answers: {question.optionOne.votes.length + question.optionTwo.votes.length}</p>
-            <p>{new Date(timestamp).toLocaleTimeString()}</p>
+            <p>{new Date(timestamp).toLocaleTimeString()} GMT+1</p>
           </div>
           <div className='question-btn'>
             <Link to={`/question/${id}`}  className='view-btn'>

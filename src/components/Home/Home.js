@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {AiOutlineLogout} from 'react-icons/ai';
 import {connect} from 'react-redux';
 import Question from './Question';
+import {removeUser} from '../../actions/authedUser';
 
 import './home.scss';
 
@@ -22,15 +23,13 @@ class Home extends Component {
         currentTab: 'Answered Questions'
       }))
     }
+    handleLogout=()=>{
+      this.props.dispatch(removeUser(null))
+    }
   render() {
     if(this.props.users ===null ) {
       return <p>Loading...</p>
     }
-    // if(this.props.users) {
-      // console.log('QuestionId', this.props.questionId);
-      // console.log('AnsweredId', this.props.answersId);
-      // console.log('UnAnsweredId', this.props.unAnsweredId);
-    // }
 
     const {tab, currentTab} = this.state
     let myTab = [];
@@ -62,7 +61,13 @@ class Home extends Component {
                 </div>
               </div>
             </div>
-            <div className='sidebar-bottom'><AiOutlineLogout title='Logout' className='logout-icon'/> </div>
+            <div className='sidebar-bottom'>
+             <p> <AiOutlineLogout title='Logout' className='logout-icon' onClick={this.handleLogout}/></p>
+              <p style={{
+                display: 'block',
+                fontSize:'17px'
+            }}onClick={this.handleLogout} >Logout</p>
+            </div>
           </div>
           <div className='content'>
             <h2 className='current-tab'>{currentTab}</h2>
