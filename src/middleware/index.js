@@ -1,8 +1,10 @@
 import thunk from 'redux-thunk';
+import logger from './logger';
 import { applyMiddleware } from 'redux';
 
 
 const middleware = applyMiddleware(
-  thunk
+  thunk,
+  logger
 )
 export default middleware;

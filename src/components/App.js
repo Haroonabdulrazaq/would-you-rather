@@ -1,33 +1,41 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Nav from './Home/Nav';
 import Home from './Home/Home';
+import QuestionDetail from './Home/QuestionDetail.js';
+import Login from './Login/Login';
 import './App.scss';
 import { handleInitialData } from '../actions';
-// import { getAllQuestions } from './actions/questions';
-
 
 class App extends React.Component {
   componentDidMount(){
-    console.log('This dot props', this.props);
-    this.props.dispatch(handleInitialData());
+    this.props.handleInitialData();
   }
   render(){
-    console.log('This is a Prop in App', this.props);
-    // dispatch(getAllQuestions(this.props))
     return (
-      <div className="App">
-        <Home/>
-      </div>
+      <Router className="App"> 
+        <Nav/>
+       {!this.props.authedUser? <Login />
+       : 
+       <> 
+         <Route path='/' exact={true} component={Home}/>
+         <Route path='/question/:id' exact={true} component={QuestionDetail}/>
+       </>
+       
+       }
+      </Router>
     );
   }
 }
 
-function mapStateToProps({users, questions}){
-  console.log('mapStateToProps in App', users);
-  console.log('mapStateToProps in App', questions);
+function mapStateToProps(state){
+  const {users, authedUser} = state;
   return {
-    questions
+    userId: Object.keys(users)
+    .sort((a,b) => users[b].timestamp - users[a].timestamp),
+    authedUser,
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {handleInitialData})(App);

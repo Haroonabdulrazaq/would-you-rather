@@ -1,0 +1,66 @@
+@import "../../assets/stylesheets/mediaQuery.scss";
+@import "../../assets/stylesheets/utils.scss";
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .cover {
+    display: none;
+
+    @include responsive(tab) {
+      display: block;
+      width: 60%;
+      min-height: inherit;
+      background: linear-gradient(to bottom right, $amaranth, $purple 0%, $dark-purple 80%);
+
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      h3 {
+        font-family: 'Corinthia', cursive;
+        font-size: 3.5rem;
+        color: $white;
+      }
+    }
+  }
+
+  .login {
+    width: 100%;
+    min-height: inherit;
+    background: $ash;
+    color: $black;
+    padding-top: 5vh;
+    color: $black;
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      
+      @include responsive(tab) {
+        font-size: 2.5rem;
+      }
+      @include responsive(desktop) {
+        font-size: 3rem;
+      }
+    }
+    .user-u-list {
+      padding: 1rem;
+      min-height: 60vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      div + div {
+        margin: 1rem 0;
+      }
+    }
+
+    @include responsive(tab) {
+      width: 40%;
+    }
+  }
+}
