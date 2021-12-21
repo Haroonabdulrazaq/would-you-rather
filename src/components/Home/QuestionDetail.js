@@ -10,7 +10,7 @@ class QuestionDetail extends Component {
   state = {
     optionOneClicked: false,
     optionTwoClicked: false,
-    percentage: 0,
+    percentage: 34,
   }
 
   componentDidMount(){
