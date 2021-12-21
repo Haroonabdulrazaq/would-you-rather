@@ -1,0 +1,41 @@
+@import "../assets/stylesheets/mediaQuery.scss";
+@import "../assets/stylesheets/utils.scss";
+
+.error-wrapper {
+  min-height: 90vh;
+  width: 100%;
+  border: 1px solid chartreuse;
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: $black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include responsive(tab){
+    font-size: 1.8rem;
+    line-height: 1.7;
+  }
+
+  .error {
+    // border: 1px solid red;
+    width: 80%;
+    height: 60vh;
+    margin-top: 5rem;
+    background: url("../assets/images/Error.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-clip: padding-box;
+
+
+    @include responsive(tab) {
+      width: 50%;
+      height: 60vh;
+      margin-top: 2rem;
+
+    }
+
+  }
+}

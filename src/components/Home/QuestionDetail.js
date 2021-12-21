@@ -10,7 +10,7 @@ class QuestionDetail extends Component {
   state = {
     optionOneClicked: false,
     optionTwoClicked: false,
-    percentage: 34,
+    percentage: 100,
   }
 
   componentDidMount(){
@@ -24,12 +24,10 @@ class QuestionDetail extends Component {
       if(user.answers[checkAnswered] === 'optionOne'){
         this.setState(()=>({
           optionOneClicked: true,
-          percentage: Math.ceil(((question.optionOne.votes.length)/3)* 100)
         }))
       } else if(user.answers[checkAnswered] === 'optionTwo'){
         this.setState(()=>({
           optionTwoClicked: true,
-          percentage: Math.ceil(((question.optionTwo.votes.length)/3)* 100)
         }))
       }
     }
@@ -43,10 +41,12 @@ class QuestionDetail extends Component {
     if(optionType === 'optionOne') {
       this.setState(()=>({
         optionOneClicked: true,
+        percentage: Math.ceil(((this.props.question.optionOne.votes.length)/3)* 100)
       }))
     } else {
       this.setState(()=>({
-        optionTwoClicked: true
+        optionTwoClicked: true,
+        percentage: Math.ceil(((this.props.question.optionTwo.votes.length)/3)* 100)
       }))
     }
   }
