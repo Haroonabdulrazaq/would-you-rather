@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { handleAddQuestion } from '../../actions/questions';
 import './newQuestion.scss';
 
 class NewQuestion extends Component {
@@ -6,16 +8,28 @@ class NewQuestion extends Component {
     textA: '',
     textB: '',
   }
+
   handleSubmit =(e)=>{
     e.preventDefault();
-    console.log(e);
+    const optionA=  this.state.textA;
+    const optionB= this.state.textB;
+    console.log('OptionA', optionA);
+    console.log('OptionB', optionB);
+    this.props.dispatch(handleAddQuestion(optionA, optionB));
+
+    this.setState(()=>({
+      textA: '',
+      textB: ''
+    }))
   }
+
   handleChange=(e)=>{
     const {name, value} = e.target;
     this.setState(()=>({
       [name]: value
     }))
   }
+
   render() {
     const {textA, textB} = this.state
     return (
@@ -56,4 +70,10 @@ class NewQuestion extends Component {
   }
 }
 
-export default NewQuestion;
+function mapStateToProps({authedUser}){
+  return {
+    authedUser,
+  }
+}
+
+export default connect(mapStateToProps)(NewQuestion);

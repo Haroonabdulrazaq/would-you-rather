@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { LoadingBar } from 'react-redux-loading';
 import Nav from './Home/Nav';
 import Home from './Home/Home';
 import NewQuestion from './Home/NewQuestion';
@@ -18,6 +19,7 @@ class App extends React.Component {
     return (
       <Router className="App">
         <Nav/>
+        <LoadingBar color="blue"/>
        {!this.props.authedUser? <Login />
        : 
        <Switch> 
@@ -38,6 +40,7 @@ function mapStateToProps(state){
     userId: Object.keys(users)
     .sort((a,b) => users[b].timestamp - users[a].timestamp),
     authedUser,
+    loading: authedUser === null,
   }
 }
 

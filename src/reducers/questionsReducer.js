@@ -1,9 +1,14 @@
-import { GET_QUESTIONS, ADD_QUESTION_ANSWER } from '../actions/questions';
+import { GET_QUESTIONS, ADD_QUESTION_ANSWER, ADD_NEW_QUESTION } from '../actions/questions';
 
 const questionsReducer=(state={}, action)=> {
   switch (action.type) {
     case GET_QUESTIONS:
       return {...state, ...action.questions};
+    case ADD_NEW_QUESTION:
+      return {
+        ...state, 
+        ...action.questions
+      };
     case ADD_QUESTION_ANSWER:
       const {authedUser, id, optionType} = action.payload
       return {
