@@ -10,23 +10,26 @@ class QuestionDetail extends Component {
   state = {
     optionOneClicked: false,
     optionTwoClicked: false,
+    percentage: 0,
   }
 
   componentDidMount(){
-    // const { optionOneClicked, optionTwoClicked } = this.state
     const {question, user,  answersId} = this.props;
-    const { id } = question;
+    // const { id } = question;
     
-    const checkAnswered = answersId.find((aid)=>  id === aid);  // Checking if the option has been answered
-
+    const checkAnswered = answersId.find((aid)=>  question.id === aid);  // Checking if the option has been answered
+    // const me = question.id['optionOne'].votes.length
+    console.log('Getting votes', question.optionOne.votes.length);
     if(checkAnswered){  // changing the UI accordingly
       if(user.answers[checkAnswered] === 'optionOne'){
         this.setState(()=>({
-          optionOneClicked: true
+          optionOneClicked: true,
+          percentage: Math.ceil(((question.optionOne.votes.length)/3)* 100)
         }))
       } else if(user.answers[checkAnswered] === 'optionTwo'){
         this.setState(()=>({
-          optionTwoClicked: true
+          optionTwoClicked: true,
+          percentage: Math.ceil(((question.optionTwo.votes.length)/3)* 100)
         }))
       }
     }
@@ -39,7 +42,7 @@ class QuestionDetail extends Component {
     this.props.dispatch(addUserAnswer(authedUser, id, optionType))
     if(optionType === 'optionOne') {
       this.setState(()=>({
-        optionOneClicked: true
+        optionOneClicked: true,
       }))
     } else {
       this.setState(()=>({
@@ -48,7 +51,7 @@ class QuestionDetail extends Component {
     }
   }
   render() {
-    const { optionOneClicked, optionTwoClicked } = this.state
+    const { optionOneClicked, optionTwoClicked, percentage } = this.state
     const {question, user, users, authedUser} = this.props;
     const { id, author, optionOne, optionTwo} = question;
 
@@ -75,6 +78,7 @@ class QuestionDetail extends Component {
               </div>
             </div>
             <div className='option-parent'>
+              {optionOneClicked && <p>{percentage}% voted for this Option</p>}
               <button disabled={optionTwoClicked || optionOneClicked} className='option optionA' onClick={()=> this.handleAnswer({authedUser, id, answer: optionOne.text, optionType: 'optionOne'})}>
                 {optionOneClicked? <IoCheckmarkCircle  className='radio-button ans'/> :<GrCheckbox className='radio-button'/>}
                 {optionOne.text}
@@ -84,6 +88,8 @@ class QuestionDetail extends Component {
                {optionTwoClicked ? <IoCheckmarkCircle className='radio-button ans'/> : <GrCheckbox className='radio-button '/>}
                 {optionTwo.text}
               </button>
+              {optionTwoClicked && <p>{percentage}% voted for this Option</p>}
+
             </div>
           </div>
         </section>
