@@ -38,7 +38,7 @@ class Home extends Component {
     }else {
       myTab = this.props.answersId
     }
-    console.log(this.props.currentUser);
+    // console.log(this.props.currentUser);
     return (
       <main className='main-wrapper'>
         <div className='wrapper'>
@@ -71,13 +71,13 @@ class Home extends Component {
           </div>
           <div className='content'>
             <h2 className='current-tab'>{currentTab}</h2>
-            <ul>
+            {myTab.length >=1? <ul>
               {myTab.map((id)=>(
                 <li key={id}>
                   <Question id={id}/>
                 </li>
               ))}
-            </ul>
+            </ul>: <h2 className='center-text'>All Questions have been answered</h2>}
           </div>
         </div>
       </main>

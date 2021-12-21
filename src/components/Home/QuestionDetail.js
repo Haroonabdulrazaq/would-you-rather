@@ -12,6 +12,26 @@ class QuestionDetail extends Component {
     optionTwoClicked: false,
   }
 
+  componentDidMount(){
+    // const { optionOneClicked, optionTwoClicked } = this.state
+    const {question, user,  answersId} = this.props;
+    const { id } = question;
+    
+    const checkAnswered = answersId.find((aid)=>  id === aid);  // Checking if the option has been answered
+
+    if(checkAnswered){  // changing the UI accordingly
+      if(user.answers[checkAnswered] === 'optionOne'){
+        this.setState(()=>({
+          optionOneClicked: true
+        }))
+      } else if(user.answers[checkAnswered] === 'optionTwo'){
+        this.setState(()=>({
+          optionTwoClicked: true
+        }))
+      }
+    }
+  }
+
   handleAnswer =({authedUser, id, answer , optionType })=>{
     console.log('I have been clicked');
     console.log(authedUser, id, answer);
@@ -28,9 +48,10 @@ class QuestionDetail extends Component {
     }
   }
   render() {
-    const{ optionOneClicked, optionTwoClicked } = this.state
+    const { optionOneClicked, optionTwoClicked } = this.state
     const {question, user, users, authedUser} = this.props;
     const { id, author, optionOne, optionTwo} = question;
+
 
     return (
       <div className='detail-wrapper'>
@@ -54,7 +75,7 @@ class QuestionDetail extends Component {
               </div>
             </div>
             <div className='option-parent'>
-              <button disabled={optionTwoClicked || optionOneClicked} className='option optionA' onClick={()=> this.handleAnswer({authedUser, id, answer: optionTwo.text, optionType: 'optionOne'})}>
+              <button disabled={optionTwoClicked || optionOneClicked} className='option optionA' onClick={()=> this.handleAnswer({authedUser, id, answer: optionOne.text, optionType: 'optionOne'})}>
                 {optionOneClicked? <IoCheckmarkCircle  className='radio-button ans'/> :<GrCheckbox className='radio-button'/>}
                 {optionOne.text}
               </button>
@@ -72,10 +93,10 @@ class QuestionDetail extends Component {
 }
 
 function mapStateToProps({questions, users, authedUser}, props){
-  // console.log('Params...', props);
   const { id } = props.match.params
   const question = questions[id]
   const user = users[authedUser]
+  const answersId = Object.keys(users[authedUser]['answers'])
   return {
     id,
     authedUser,
@@ -83,6 +104,7 @@ function mapStateToProps({questions, users, authedUser}, props){
     user,
     questions,
     question,
+    answersId,
     // question: question? formatQuestion(question[optionOne.text]): null,
   }
 }

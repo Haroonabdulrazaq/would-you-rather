@@ -9,7 +9,7 @@ class Question extends Component {
     const { id, users, question } = this.props;
     const { author, timestamp } = question;
     return (
-      <div to={`/question/${id}`} className='question-wrapper'>
+      <div className='question-wrapper'>
         <div className='question-author'>
           Authored by: {users[author].name}
         </div>
@@ -19,7 +19,7 @@ class Question extends Component {
             <p>{new Date(timestamp).toLocaleTimeString()} GMT+1</p>
           </div>
           <div className='question-btn'>
-            <Link to={`/question/${id}`}  className='view-btn'>
+            <Link to={`/question/${id}`} className='view-btn'>
               View Detail
             </Link>
           </div>
