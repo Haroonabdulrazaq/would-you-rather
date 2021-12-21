@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import User from './User';
-import './Login.scss';
+import Cover from './Cover';
+import './login.scss';
 
 class Login extends Component {
 
   render() {
     return (
       <div className='login-wrapper'>
-        <div className='cover'>
-          <h3>Would you Rather?</h3>
-        </div>
+        <Cover />
         <div className='login'>
           <h2>Login As:</h2>
           <div className='user-u-list'>

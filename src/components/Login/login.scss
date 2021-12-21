@@ -8,26 +8,6 @@
   justify-content: space-between;
   align-items: center;
 
-  .cover {
-    display: none;
-
-    @include responsive(tab) {
-      display: block;
-      width: 60%;
-      min-height: inherit;
-      background: linear-gradient(to bottom right, $amaranth, $purple 0%, $dark-purple 80%);
-
-      display: flex;
-      justify-content:center;
-      align-items: center;
-      h3 {
-        font-family: 'Corinthia', cursive;
-        font-size: 3.5rem;
-        color: $white;
-      }
-    }
-  }
-
   .login {
     width: 100%;
     min-height: inherit;

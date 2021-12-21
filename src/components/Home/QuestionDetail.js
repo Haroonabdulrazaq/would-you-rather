@@ -10,7 +10,8 @@ class QuestionDetail extends Component {
   state = {
     optionOneClicked: false,
     optionTwoClicked: false,
-    percentage: 100,
+    percentageOne: Math.ceil((this.props.question.optionOne.votes.length/3)*100),
+    percentageTwo: Math.ceil((this.props.question.optionTwo.votes.length/3)*100),
   }
 
   componentDidMount(){
@@ -24,34 +25,39 @@ class QuestionDetail extends Component {
       if(user.answers[checkAnswered] === 'optionOne'){
         this.setState(()=>({
           optionOneClicked: true,
+          percentage: Math.ceil((this.props.question.optionOne.votes.length/3)*100),
         }))
       } else if(user.answers[checkAnswered] === 'optionTwo'){
         this.setState(()=>({
           optionTwoClicked: true,
+          percentage: Math.ceil((this.props.question.optionTwo.votes.length/3)*100),
         }))
       }
     }
   }
 
   handleAnswer =({authedUser, id, answer , optionType })=>{
-    console.log('I have been clicked');
-    console.log(authedUser, id, answer);
-    this.props.dispatch(addQuestionAnswer(authedUser, answer, id, optionType))
-    this.props.dispatch(addUserAnswer(authedUser, id, optionType))
+    const {dispatch, question} = this.props
+
+    dispatch(addQuestionAnswer(authedUser, answer, id, optionType))
+    dispatch(addUserAnswer(authedUser, id, optionType))
+
     if(optionType === 'optionOne') {
+      console.log('Option1', question.optionOne);
       this.setState(()=>({
         optionOneClicked: true,
-        percentage: Math.ceil(((this.props.question.optionOne.votes.length)/3)* 100)
+        percentageOne: question.optionOne.votes.length
       }))
     } else {
+      console.log('Option2', question.optionTwo);
       this.setState(()=>({
         optionTwoClicked: true,
-        percentage: Math.ceil(((this.props.question.optionTwo.votes.length)/3)* 100)
+        percentageTwo: question.optionTwo.votes.length
       }))
     }
   }
   render() {
-    const { optionOneClicked, optionTwoClicked, percentage } = this.state
+    const { optionOneClicked, optionTwoClicked, percentageOne, percentageTwo } = this.state
     const {question, user, users, authedUser} = this.props;
     const { id, author, optionOne, optionTwo} = question;
 
@@ -78,7 +84,7 @@ class QuestionDetail extends Component {
               </div>
             </div>
             <div className='option-parent'>
-              {optionOneClicked && <p>{percentage}% voted for this Option</p>}
+              {optionOneClicked && <p>{percentageOne}% voted for this Option</p>}
               <button disabled={optionTwoClicked || optionOneClicked} className='option optionA' onClick={()=> this.handleAnswer({authedUser, id, answer: optionOne.text, optionType: 'optionOne'})}>
                 {optionOneClicked? <IoCheckmarkCircle  className='radio-button ans'/> :<GrCheckbox className='radio-button'/>}
                 {optionOne.text}
@@ -88,7 +94,7 @@ class QuestionDetail extends Component {
                {optionTwoClicked ? <IoCheckmarkCircle className='radio-button ans'/> : <GrCheckbox className='radio-button '/>}
                 {optionTwo.text}
               </button>
-              {optionTwoClicked && <p>{percentage}% voted for this Option</p>}
+              {optionTwoClicked && <p>{percentageTwo}% voted for this Option</p>}
 
             </div>
           </div>
