@@ -22,22 +22,21 @@ export function addQuestionAnswer(authedUser, answer, id, optionType) {
   }
 }
 
-export function addNewQuestion(optionA, optionB) {
+export function addNewQuestion(question) {
   return {
     type: ADD_NEW_QUESTION,
-    optionA,
-    optionB,
+    question
   }
 }
 
-export function handleAddQuestion(optionA, optionB) {
+export function handleAddQuestion(optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
     dispatch(showLoading())
 
     return saveQuestion({
-      optionA,
-      optionB,
+      optionOneText,
+      optionTwoText,
       author: authedUser,
     })
       .then((question) => {

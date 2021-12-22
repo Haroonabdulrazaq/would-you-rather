@@ -7,7 +7,7 @@ const questionsReducer=(state={}, action)=> {
     case ADD_NEW_QUESTION:
       return {
         ...state, 
-        ...action.questions
+        [action.question.id]: {...action.question}
       };
     case ADD_QUESTION_ANSWER:
       const {authedUser, id, optionType} = action.payload

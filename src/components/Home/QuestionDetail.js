@@ -16,10 +16,9 @@ class QuestionDetail extends Component {
 
   componentDidMount(){
     const {question, user,  answersId} = this.props;
-    // const { id } = question;
     
     const checkAnswered = answersId.find((aid)=>  question.id === aid);  // Checking if the option has been answered
-    // const me = question.id['optionOne'].votes.length
+
     console.log('Getting votes', question.optionOne.votes.length);
     if(checkAnswered){  // changing the UI accordingly
       if(user.answers[checkAnswered] === 'optionOne'){
