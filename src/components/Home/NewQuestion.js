@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { handleAddQuestion } from '../../actions/questions';
 import './newQuestion.scss';
 
@@ -7,6 +8,7 @@ class NewQuestion extends Component {
   state = {
     textA: '',
     textB: '',
+    redirect: false,
   }
 
   handleSubmit =(e)=>{
@@ -19,8 +21,10 @@ class NewQuestion extends Component {
 
     this.setState(()=>({
       textA: '',
-      textB: ''
+      textB: '', 
+      redirect: true,
     }))
+    
   }
 
   handleChange=(e)=>{
@@ -31,7 +35,8 @@ class NewQuestion extends Component {
   }
 
   render() {
-    const {textA, textB} = this.state
+    const {textA, textB, redirect} = this.state
+    if(redirect) { return <Redirect to='/' />}
     return (
       <div className='new-wrapper'> 
         <div className='cover'>

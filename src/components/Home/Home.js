@@ -34,9 +34,9 @@ class Home extends Component {
     const {tab, currentTab} = this.state
     let myTab = [];
     if(tab) {
-      myTab = this.props.unAnsweredId
+      myTab = this.props.unAnsweredId.reverse()
     }else {
-      myTab = this.props.answersId
+      myTab = this.props.answersId.reverse()
     }
     // console.log(this.props.currentUser);
     return (
@@ -86,8 +86,8 @@ class Home extends Component {
 }
 function mapStateToProps({authedUser, users, questions}){ 
   const currentUser = users[authedUser]
-  const answersId= Object.keys(users[authedUser]['answers'])
-  const questionId= Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+  const questionId = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp).reverse()
+  const answersId = Object.keys(users[authedUser]['answers']).reverse()
   const unAnsweredId = questionId.filter(x => !answersId.includes(x));
   return {
     authedUser,

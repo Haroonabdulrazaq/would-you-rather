@@ -15,6 +15,7 @@ class Question extends Component {
         </div>
         <div className='question-info'>
           <div className='no-answers'>
+            {`...${question.optionOne.text}`}
            <p>No of Answers: {question.optionOne.votes.length + question.optionTwo.votes.length}</p>
             <p>{new Date(timestamp).toLocaleTimeString()} GMT+1</p>
           </div>
