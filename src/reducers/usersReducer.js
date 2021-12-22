@@ -1,10 +1,19 @@
-import { GET_USERS, ADD_USER_ANSWER } from '../actions/usersAction';
+import { GET_USERS, ADD_USER_ANSWER, ADD_QUESTION_TO_USER } from '../actions/usersAction';
 
 const usersReducer=(state={}, action)=> {
   switch (action.type) {
     case GET_USERS:
-      // console.log('I am the user Action in userReducer', action.users);
       return {...state, ...action.users};
+    case ADD_QUESTION_TO_USER:
+      return {
+        ...state,
+        [action.authedUser]: {
+          ...state[action.authedUser],
+          questions: state[action.authedUser].questions.concat([
+            action.qId,
+          ]),
+        },
+      };
     case ADD_USER_ANSWER:
       const {authedUser, id, optionType} = action.payload;
       return {
