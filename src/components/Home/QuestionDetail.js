@@ -46,13 +46,13 @@ class QuestionDetail extends Component {
       console.log('Option1', question.optionOne);
       this.setState(()=>({
         optionOneClicked: true,
-        percentageOne: question.optionOne.votes.length
+        percentageOne: Math.ceil(((question.optionOne.votes.length + 1)/3)*100),
       }))
     } else {
       console.log('Option2', question.optionTwo);
       this.setState(()=>({
         optionTwoClicked: true,
-        percentageTwo: question.optionTwo.votes.length
+        percentageTwo: Math.ceil(((question.optionTwo.votes.length + 1)/3)*100),
       }))
     }
   }
