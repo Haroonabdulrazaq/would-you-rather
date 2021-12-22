@@ -8,7 +8,7 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 
   .cover {
@@ -31,17 +31,61 @@
     }
   }
   .form-wrapper {
-    width: 100%;
-    min-height: inherit;
+    font-family: 'Roboto Slab', serif;
+    width: 70%;
+    min-height: 65vh;
     background: $ash;
+    box-shadow: $shadow;
+    border-radius: 0.3rem;
+    padding-top: 5rem;
     
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     
     @include responsive(tab) {
       width: 40%;
+      box-shadow: none;
     }
+    .form{
+      width: 80%;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+    h3 {
+      padding: 2rem;
+      font-size: 2rem;
+    }
+
+    div + div {
+      margin: 2.5rem 0;
+    }
+
+    input {
+      padding: 1rem;
+      width: 100%;
+      outline: none;
+      font-size: 1.5rem;
+      transition: all 0.8;
+    }
+    input:focus {
+      border: 1px solid $purple;
+    }
+    .submit {
+      // width: 10vw;
+      margin: 0 auto;
+      padding: 1rem 1.8rem;
+      border: 2px solid $purple;
+      color: $purple;
+      font-size: 1.5rem;
+      cursor: pointer;
+      float: right;
+      transition: all 0.6s;
+
+    }
+    // .submit:hover {
+    //   background: $purple;
+    //   color: $white;
+    // }
   }
 }
