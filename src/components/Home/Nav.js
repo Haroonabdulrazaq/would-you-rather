@@ -35,12 +35,14 @@ class Nav extends Component {
           </div>
         </div>
         {this.state.open && <div className='nav-container'>
-          <div className='nav-wrapper'>
+          {this.props.authedUser? <div className='nav-wrapper'>
             <Link to='/' className='nav-link' onClick={this.handleClick}>Home</Link>
             <Link to='/add' className='nav-link' onClick={this.handleClick}>Add Question</Link>
             <Link to='/leaderboard' className='nav-link' onClick={this.handleClick}>Leaderboard</Link>
             <Link to='#' className='nav-link logout' onClick={this.handleLogout}>Log Out</Link>
-          </div>
+          </div>: 
+            <Link to='#' onClick={this.handleClick} className='nav-link logout'>Select a user to log in!</Link>
+          }
         </div>}
       </div>
     )
