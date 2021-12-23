@@ -5,7 +5,7 @@
 .main-wrapper {
   // border: 1px solid chartreuse;
   min-height: 100vh;
-  color: $black;
+  color: $text-black;
   .wrapper {
     // border: 1px solid blue;
     min-height: 90vh;
@@ -100,7 +100,7 @@
         }
         .logout-icon {
           // border: 1px solid chartreuse;
-          color: $black;
+          color: $text-black;
           font-size: 3.5rem;
         }
         .logout-icon:hover {
