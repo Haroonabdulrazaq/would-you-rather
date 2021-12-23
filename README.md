@@ -5,7 +5,7 @@ In this app, users will be able to answer questions, see which questions they ha
 
 
 ## Screenshot :camera:
-![screenshot](./assets/images/WouldYouRather.png)
+![screenshot](./src/assets/images/WouldYouRather.png)
 
 ## Built with :heart:
 - React & Redux
