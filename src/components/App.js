@@ -10,6 +10,7 @@ import QuestionDetail from './Home/QuestionDetail.js';
 import Login from './Login/Login';
 import './App.scss';
 import { handleInitialData } from '../actions';
+import LeaderBoard from './LeaderBoard';
 
 class App extends React.Component {
   componentDidMount(){
@@ -24,7 +25,8 @@ class App extends React.Component {
        : 
        <Switch> 
          <Route path='/' exact={true} component={Home}/>
-         <Route path='/new-question/' exact={true} component={NewQuestion}/>
+         <Route path='/add' exact={true} component={NewQuestion}/>
+         <Route path='/leaderboard' exact={true} component={LeaderBoard}/>
          <Route path='/question/:id' exact={true} component={QuestionDetail}/>
          <Route path='*' exact={true} component={Error}/>
        </Switch>

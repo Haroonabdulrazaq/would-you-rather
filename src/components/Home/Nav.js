@@ -13,6 +13,7 @@ class Nav extends Component {
       <div className='nav'>
         <h3 className="navbar-brand"><Link to='/'>Would <span className='you'>you</span>Rather?</Link></h3>
         <div className="navbar-menu">
+          <Link to='/leaderboard'>Leaderboard</Link>
           <p className="authed-user">{this.props.authedUser? this.props.users[this.props.authedUser]['name'] : 'Welcome' }</p>
           {this.props.authedUser && <AiOutlineMenu className='menu-icon'/>}
         </div>
