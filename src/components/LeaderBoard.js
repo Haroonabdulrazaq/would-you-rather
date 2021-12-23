@@ -4,13 +4,13 @@ import './leaderboard.scss';
 
 class LeaderBoard extends Component {
   render() {
-    const { users, numUsers } = this.props;
+    const { users, myRes } = this.props;
 
     return (
       <div className='leader-board'>
         <h3 className='center-text'>Leader Board</h3>
         <div className='board-wrapper'>
-          {numUsers.map((user)=>(
+          {myRes.map((user)=>(
             <div key={user} className='board'>
               <div className='pic-name'>
                 <div className='pic' style={{
@@ -45,10 +45,26 @@ class LeaderBoard extends Component {
 function mapStateToProp({users, authedUser}){
   const user = users[authedUser];
   const numUsers = Object.keys(users);
+  const resArr = [];
+  numUsers.map((user) => {
+    const resObj = {
+      'name': users[user].id,
+      'total': users[user]['questions'].length + Object.keys(users[user]['answers']).length
+    }
+    return resArr.push(resObj)
+  })
+  const myArr = resArr.sort((a, b) => parseFloat(b.total) - parseFloat(a.total));
+  const myRes =[]
+  for(let i=0; i < myArr.length; i++){
+    myRes.push(myArr[i].name) 
+   }
+  console.log('|||||', myRes);
+
   return {
     users,
     user,
     numUsers,
+    myRes
   }
 }
 

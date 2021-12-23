@@ -9,9 +9,8 @@
     padding: 7rem 2rem;
     background: $white;
     border-radius: 0.3rem;
-    $shadow: 0.5rem 1rem 2rem $amaranth;
+    box-shadow: 0.5rem 0.2rem 3rem #444;
     
-
     position: absolute;
     top: 5rem;
     right: 3.5rem;
@@ -36,6 +35,15 @@
     }
     a+a {
       margin: 2rem 0;
+    }
+    .logout {
+      border: 2px solid red;
+      color: red;
+      transition: all 0.5;
+    }
+    .logout:hover {
+      background: red;
+      color: $white;
     }
   }
 }
