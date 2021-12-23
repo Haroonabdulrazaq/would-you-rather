@@ -1,0 +1,20 @@
+// @import "../../assets/stylesheets/flexPoint.scss";
+// @import "../assets/stylesheets/mediaQuery.scss";
+@import "./src/assets/stylesheets/utils.scss";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  color: $white;
+  scroll-behavior: smooth;
+  // background: $ash;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

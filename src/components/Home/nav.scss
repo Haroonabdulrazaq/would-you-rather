@@ -1,0 +1,100 @@
+@import "../../assets/stylesheets/mediaQuery.scss";
+@import "../../assets/stylesheets/utils.scss";
+
+.nav-parent {
+  position: relative;
+  .nav-container {
+    width: 45vw;
+    min-height: 45vh;
+    padding: 7rem 2rem;
+    background: $white;
+    border-radius: 0.3rem;
+    box-shadow: 0.5rem 0.2rem 3rem #444;
+    
+    position: absolute;
+    top: 5rem;
+    right: 3.5rem;
+    z-index: 5;
+
+    @include responsive(tab) {
+      width: 25vw;
+      min-height: 35vh;
+    }
+
+    a{
+      display: block;
+      padding: 1rem;
+      text-decoration: none;
+      font-size: 1.5rem;
+      border-bottom: 1px solid $ash;
+      color: $text-black;
+      transition: all 0.5s;
+    }
+    a:hover{
+      box-shadow: 0.1rem 0.5rem 1rem $ash;
+    }
+    a+a {
+      margin: 2rem 0;
+    }
+    .logout {
+      border: 2px solid red;
+      color: red;
+      transition: all 0.5;
+    }
+    .logout:hover {
+      background: red;
+      color: $white;
+    }
+  }
+}
+.nav {
+  color: $white;
+  width: 100%;
+  min-height: 10vh;
+  background: linear-gradient(to bottom right, $amaranth, $purple 0%, $dark-purple 80%);
+  padding: 0 2rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .navbar-brand {
+    font-family: $cursiveFont;
+    font-size: 2.5rem;
+  }
+
+  .navbar-brand:hover {
+    cursor: pointer;
+  }
+  .navbar-menu {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include responsive(tab) {
+      width: 20%;
+    }
+
+    p{
+      
+      font-size: 1rem;
+      cursor: pointer;
+      @include responsive(tab) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .menu-icon {
+    font-size: 3rem;
+  }
+  .menu-icon:hover {
+    cursor: pointer;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+}

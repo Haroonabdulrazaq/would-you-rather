@@ -1,0 +1,94 @@
+@import "../assets/stylesheets/mediaQuery.scss";
+@import "../assets/stylesheets/utils.scss";
+
+.leader-board {
+  width: 100%;
+  min-height: 90vh;
+  color: $text-black;
+  background: $ash;
+  padding: 1.5rem;
+
+  h3{
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 2rem;
+    @include responsive(tab){
+      font-size: 3rem;
+    }
+
+  }
+
+  .board-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 50vh;
+    
+    
+    @include responsive(tab){
+      width: 50%;
+    }
+    
+    .board {
+      min-height: 25vh;
+      width: 90%;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+      background: $white;
+      box-shadow: $shadow;
+      border-radius: 0.3rem;
+      padding: 1rem;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .pic-name {
+        width: 100%;
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+
+        .pic {
+          width: 100%;
+          height: 20vh;
+        }
+        .name {
+          width: 80%;
+          margin: 0 auto;
+          height: 5vh;
+          font-size: 1.5rem;
+          text-align: left;
+        }
+      }
+      .question-answer {
+        width: 100%;
+        min-height: inherit;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: 1.5rem;
+      }
+      .total {
+        width: 100%;
+        min-height: inherit;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .num {
+          font-size: 3rem;
+          color: $purple;
+          font-size: 3rem;
+          font-weight: bolder;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

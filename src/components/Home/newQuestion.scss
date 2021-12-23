@@ -1,0 +1,91 @@
+@import "../../assets/stylesheets/mediaQuery.scss";
+@import "../../assets/stylesheets/utils.scss";
+
+.new-wrapper {
+  width: 100%;
+  min-height: 90vh;
+  color: $black;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .cover {
+    display: none;
+  
+    @include responsive(tab) {
+      display: block;
+      width: 60%;
+      min-height: 90vh;
+      background: linear-gradient(to bottom right, $amaranth, $purple 0%, $dark-purple 80%);
+  
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      h3 {
+        font-family: 'Corinthia', cursive;
+        font-size: 3.5rem;
+        color: $white;
+      }
+    }
+  }
+  .form-wrapper {
+    font-family: 'Roboto Slab', serif;
+    width: 70%;
+    min-height: 65vh;
+    background: $ash;
+    box-shadow: $shadow;
+    border-radius: 0.3rem;
+    padding-top: 5rem;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @include responsive(tab) {
+      width: 40%;
+      box-shadow: none;
+    }
+    .form{
+      width: 80%;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+    h3 {
+      padding: 2rem;
+      font-size: 2rem;
+    }
+
+    div + div {
+      margin: 2.5rem 0;
+    }
+
+    input {
+      padding: 1rem;
+      width: 100%;
+      outline: none;
+      font-size: 1.5rem;
+      transition: all 0.8;
+    }
+    input:focus {
+      border: 1px solid $purple;
+    }
+    .submit {
+      // width: 10vw;
+      margin: 0 auto;
+      padding: 1rem 1.8rem;
+      border: 2px solid $purple;
+      color: $purple;
+      font-size: 1.5rem;
+      cursor: pointer;
+      float: right;
+      transition: all 0.6s;
+
+    }
+    .submit:hover {
+      background: $purple;
+      color: $white;
+    }
+  }
+}
