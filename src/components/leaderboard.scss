@@ -2,7 +2,6 @@
 @import "../assets/stylesheets/utils.scss";
 
 .leader-board {
-  border: 1px solid chartreuse;
   width: 100%;
   min-height: 90vh;
   color: $black;
@@ -12,6 +11,7 @@
   h3{
     font-size: 2rem;
     text-align: center;
+    padding-bottom: 2rem;
     @include responsive(tab){
       font-size: 3rem;
     }
@@ -54,11 +54,11 @@
           height: 20vh;
         }
         .name {
-          width: 100%;
+          width: 80%;
+          margin: 0 auto;
           height: 5vh;
           font-size: 1.5rem;
           text-align: left;
-          padding-left: 1rem;
         }
       }
       .question-answer {
