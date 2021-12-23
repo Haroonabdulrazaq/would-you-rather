@@ -18,6 +18,22 @@ In this app, users will be able to answer questions, see which questions they ha
 - [ ] cd into the project directory <code> cd would-you-rather </code>
 - [ ] To start the project <code> npm start </code>
 
+## Tools :hammer_and_wrench:
+- React js
+- Redux
+- AWS (For deployment)
+
+## Work Done
+- [] Add Login functionality
+- [] Add Logout functionality
+- [] Display User information when LoggedIn
+- [] Users Unanswered is shown by default
+- [] User can toggle between Answered and Unanswered
+- [] Add Question detail page
+- [] User can Add new Question(Poll)
+- [] Add Leaderboard functionality
+- [] Add Error or 404 page
+
 
 ## App Functionality
 The person using your application should have a way of impersonating/logging in as an existing user. (This could be as simple as having a login box that appears at the root of the application that lets the user select a name from the list of existing users. Alternatively, you could create your own account creation process to allow a user to sign up for an account.) Your application should work correctly regardless of which user is selected. Once the user logs in, the home page should be shown.
@@ -56,21 +72,6 @@ Users should be ordered in descending order based on the sum of the number of qu
 
 The user should be able to navigate to the leaderboard, to a specific question, and to the form that allows the user to create a new poll both from within the app and by typing in the address into the address bar. To make sure we’re showing the data that is relevant to the user, the application should require the user to be signed in order to access those pages
 
-## Tools :hammer_and_wrench:
-- React js
-- Redux
-- AWS (For deployment)
-
-## Work Done
-- [] Add Login functionality
-- [] Add Logout functionality
-- [] Display User information when LoggedIn
-- [] Users Unanswered is shown by default
-- [] User can toggle between Answered and Unanswered
-- [] Add Question detail page
-- [] User can Add new Question(Poll)
-- [] Add Leaderboard functionality
-- [] Add Error or 404 page
 
  ## Deploy :rocket:
 This project is deployed to [Amazon AWS]()
