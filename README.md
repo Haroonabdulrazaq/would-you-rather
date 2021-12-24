@@ -10,8 +10,8 @@ In this app, users will be able to answer questions, see which questions they ha
 ## Built with :heart:
 - React & Redux
 
-## Live Link :link:
- [My Read](http://would-you-ratha.s3-website-us-east-1.amazonaws.com/)
+## Live Link :link: :rocket:
+ [Would You Rather](http://would-you-ratha.s3-website-us-east-1.amazonaws.com/)
 
 ## Set up :wrench:
 - [ ] Clone the repo using the git command <code> git clone git@github.com:Haroonabdulrazaq/would-you-rather.git</code>
