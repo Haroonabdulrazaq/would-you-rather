@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import BackButton from './BackButton';
 import './leaderboard.scss';
 
 class LeaderBoard extends Component {
@@ -8,6 +9,7 @@ class LeaderBoard extends Component {
 
     return (
       <div className='leader-board'>
+        <BackButton />
         <h3 className='center-text'>Leader Board</h3>
         <div className='board-wrapper'>
           {myRes.map((user)=>(

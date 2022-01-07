@@ -16,7 +16,8 @@
   position: absolute;
   bottom: 2rem;
   right: 2rem;
-  
+  z-index: 4;
+
   @include responsive(tab){
     // position: absolute;
     top: 2rem;
