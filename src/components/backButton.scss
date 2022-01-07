@@ -11,7 +11,10 @@
   text-transform: uppercase;
   background: $ash;
   border: 1px solid $purple;
-
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   position: fixed;
   bottom: 2rem;
@@ -19,7 +22,7 @@
   z-index: 4;
 
   @include responsive(tab){
-    top: 2rem;
+    top: 10rem;
     padding: 1rem 2.5rem;
     height: 5.5vh;
   }
@@ -28,4 +31,9 @@
 .button:hover{
   background: linear-gradient(to bottom right, $amaranth, $purple 0%, $dark-purple 80%);
   color: white;
+}
+
+.back-arrow {
+  font-size: 1.5rem;
+  margin-right: 1rem;
 }
