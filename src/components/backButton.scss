@@ -1,0 +1,31 @@
+@import "../assets/stylesheets/mediaQuery.scss";
+@import "../assets/stylesheets/utils.scss";
+
+
+.button {
+  border-radius: 0.3rem;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  color: $purple;
+  font-weight: bolder;
+  text-transform: uppercase;
+  background: $ash;
+  border: 1px solid $purple;
+
+
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  
+  @include responsive(tab){
+    // position: absolute;
+    top: 2rem;
+    padding: 1rem 2.5rem;
+    height: 5.5vh;
+  }
+}
+
+.button:hover{
+  background: linear-gradient(to bottom right, $amaranth, $purple 0%, $dark-purple 80%);
+  color: white;
+}

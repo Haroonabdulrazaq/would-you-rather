@@ -32,7 +32,7 @@ class Nav extends Component {
               <AiFillCloseCircle className='menu-icon' onClick={this.handleClick}/>:
               <AiOutlineMenu className='menu-icon' onClick={this.handleClick} />
             }
-          </div>
+          </div> 
         </div>
         {this.state.open && <div className='nav-container'>
           {this.props.authedUser? <div className='nav-wrapper'>

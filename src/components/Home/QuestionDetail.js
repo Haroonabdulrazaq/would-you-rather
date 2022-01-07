@@ -4,7 +4,10 @@ import  { GrCheckbox } from 'react-icons/gr';
 import  { IoCheckmarkCircle } from 'react-icons/io5';
 import { addQuestionAnswer } from '../../actions/questions';
 import { addUserAnswer } from '../../actions/usersAction';
+import BackButton from '../BackButton';
 import './questionDetail.scss';
+
+
 
 class QuestionDetail extends Component {
   state = {
@@ -63,6 +66,7 @@ class QuestionDetail extends Component {
 
     return (
       <div className='detail-wrapper'>
+        <BackButton />
         <section className='question-box'>
           <div className='question-head'>
             Would <span className='you-invert'>you</span>Rather?
