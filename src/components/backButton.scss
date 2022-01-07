@@ -13,13 +13,12 @@
   border: 1px solid $purple;
 
 
-  position: absolute;
+  position: fixed;
   bottom: 2rem;
   right: 2rem;
   z-index: 4;
 
   @include responsive(tab){
-    // position: absolute;
     top: 2rem;
     padding: 1rem 2.5rem;
     height: 5.5vh;
